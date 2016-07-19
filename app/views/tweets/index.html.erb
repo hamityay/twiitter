@@ -3,7 +3,7 @@
   <div class="Tweet row clearfix">
     <h2>
       <%= link_to tweet.twet, tweet%><br>
-      <small class="author">submitted <%= time_ago_in_words(tweet.created_at) %> by <%= tweet.user.email %></small>
+      <small class="author">submitted <%= time_ago_in_words(tweet.created_at) %> by <%= tweet.user.name %></small>
     </h2>
   </div>
 <% end %>

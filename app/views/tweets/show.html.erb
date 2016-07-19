@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h1> <%= @tweet.twet %> <br> <small>Submitted by <%= @tweet.user.email %></small></h1>
+	<h1> <%= @tweet.twet %> <br> <small>Submitted by <%= @tweet.user.name %></small></h1>
 </div>
 
 <% if @tweet.user == current_user %>
