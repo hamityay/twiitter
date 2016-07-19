@@ -62,6 +62,18 @@ class TweetsController < ApplicationController
     end
   end
 
+  def upvote
+    @tweet = Tweet.find(params[:id])
+    @tweet.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @tweet = Tweet.find(params[:id])
+    @tweet.downvote_by current_user
+    redirect_to :back
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tweet

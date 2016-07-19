@@ -2,6 +2,20 @@
 	<h1> <%= @tweet.twet %> <br> <small>Submitted by <%= @tweet.user.name %></small></h1>
 </div>
 
+<div class="btn-group pull-right">
+  <%= link_to Like_tweet_path(@tweet), method: :put, class: "btn btn-default btn-sm" do %>
+    <span class="glyphicon glyphicon-chevron-up"></span>
+    LIKE
+    <%= @tweet.get_upvotes.size %>
+  <% end %>
+  <%= link_to Dislike_tweet_path(@tweet), method: :put, class: "btn btn-default btn-sm" do %>
+    <span class="glyphicon glyphicon-chevron-down">
+    DISLIKE
+    <%= @tweet.get_downvotes.size %>
+  <% end %>
+</div>
+
+
 <% if @tweet.user == current_user %>
 	<div class="btn-group">
 		<%= link_to 'Edit', edit_tweet_path(@tweet), class: "btn btn-default" %>

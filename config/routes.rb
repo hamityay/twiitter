@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   resources :comments
   devise_for :users
   resources :tweets do
+    member do
+      put "Like",    to: "tweets#upvote"
+      put "Dislike", to: "tweets#downvote"
+    end
     resources :comments
   end
 
