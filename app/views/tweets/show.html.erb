@@ -1,9 +1,10 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+	<h1> <%= @tweet.twet %> <br> <small>Submitted by <%= @tweet.user.email %></small></h1>
+</div>
 
-<p>
-  <strong>Twet:</strong>
-  <%= @tweet.twet %>
-</p>
-
-<%= link_to 'Edit', edit_tweet_path(@tweet) %> |
-<%= link_to 'Back', tweets_path %>
+<% if @tweet.user == current_user %>
+	<div class="btn-group">
+		<%= link_to 'Edit', edit_tweet_path(@tweet), class: "btn btn-default" %>
+		<%= link_to 'Destroy', @tweet, method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-default" %>
+	</div>
+<% end %>
